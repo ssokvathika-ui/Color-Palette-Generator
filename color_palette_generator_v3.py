@@ -63,11 +63,30 @@ def analyze_materials_with_ai(image, api_key):
         genai.configure(api_key=api_key)
         model = genai.GenerativeModel('gemini-3-flash-preview')
         prompt = (
-            "You are an Interior Architect. Analyze this image for materials. "
-            "List primary textures (e.g., velvet, brushed concrete, wood), "
-            "describe if they absorb or reflect light, and suggest one "
-            "missing texture (like a thick wool throw) to balance the room."
-        )
+    "ACT AS: A Senior Interior Architect and Material Forensic Specialist. "
+    "CONTEXT: You are performing a 'Tactile & Chromatic Audit' on a high-end design project. "
+    "TASK: Analyze the provided image with surgical precision across these 4 pillars: "
+    
+    "\n\n1. **SPECIFIC MATERIAL FORENSICS:** Identify exact material types. Don't just say 'wood' or 'stone.' "
+    "Differentiate between open-grain hardwoods, polished igneous rocks, or woven synthetic blends. "
+    "Note the 'patina'—is the surface aged, matte-honed, or mirror-polished?"
+    
+    "\n2. **PHOTOMETRIC BEHAVIOR:** Describe the 'Light-Material Interaction.' "
+    "Analyze Subsurface Scattering (how light enters a material like marble), "
+    "Specular Highlights (glare on hard surfaces), and Diffuse Reflection (how fabrics soften the room). "
+    "Note the CCT (Color Temperature) of the light and how it shifts the material's perceived color."
+    
+    "\n3. **HAPTIC & ACOUSTIC BALANCE:** Evaluate the 'Sensory Weight.' "
+    "How would these materials feel to the touch? Is the room 'Acoustically Bright' (lots of echoes from hard stone/glass) "
+    "or 'Acoustically Damped' (quieted by textiles)? Identify the ratio of hard vs. soft surfaces."
+    
+    "\n4. **STRATEGIC INTERVENTION:** Based on the current audit, suggest one specific 'Missing Element' "
+    "to achieve perfect spatial harmony. Focus on improving either the 'Thermal Comfort' (warmth) "
+    "or 'Acoustic Softness' of the environment."
+    
+    "\n\nOUTPUT REQUIREMENT: Use professional architectural nomenclature. Format with clear, bolded headers. "
+    "Ensure the tone is sophisticated, analytical, and ready for a design presentation."
+    )
         response = model.generate_content([prompt, image])
         return response.text
     except Exception as e:
