@@ -61,7 +61,7 @@ def analyze_materials_with_ai(image, api_key):
     """v3.0 AI Material Analysis Engine"""
     try:
         genai.configure(api_key=api_key)
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-1.5-flash-latest')
         prompt = (
             "You are an Interior Architect. Analyze this image for materials. "
             "List primary textures (e.g., velvet, brushed concrete, wood), "
