@@ -179,4 +179,5 @@ if __name__ == "__main__":
 
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("Created by **[Your Name]** 🇰🇭")
+st.sidebar.markdown("Created by **Sopheak Sokvathika** 🇰🇭")
+
